@@ -1,0 +1,47 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.fullscreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.right {
+  overflow-y: auto;
+  width: 60%;
+}
+
+.left {
+  width: 40%;
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.bodyText {
+  font-family: monospace;
+  display: block;
+  unicode-bidi: embed;
+  line-height: 1rem;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.grid {
+  display: flex;
+  max-height: calc(100% - 64px);
+  min-width: 700px;
+}
+
+::ng-deep .green {
+  background-color: rgba(76, 175, 80, 0.8);
+}

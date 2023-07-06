@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="navbar mat-elevation-z6">
+  <button id="menu-button" mat-icon-button (click)="toggleCollapse()">
+    <mat-icon *ngIf="!collapsed"> menu </mat-icon>
+    <mat-icon *ngIf="collapsed"> close </mat-icon>
+  </button>
+
+  <span>Smart Matching</span>
+
+  <div class="spacer"></div>
+
+  <a
+    id="login-button"
+    mat-raised-button
+    (click)="authenticationService.login()"
+    *ngIf="authenticationService.isLoggedIn === false"
+    >Login</a
+  >
+  <a
+    id="logout-button"
+    mat-raised-button
+    (click)="authenticationService.logout()"
+    *ngIf="authenticationService.isLoggedIn === true"
+    >Log Out</a
+  >
+</mat-toolbar>

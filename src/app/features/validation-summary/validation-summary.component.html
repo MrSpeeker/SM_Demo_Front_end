@@ -1,0 +1,17 @@
+<div class="spinner-container" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="mat-elevation-z8" *ngIf="!loading">
+  <app-data-table
+    [dataSource]="dataSource"
+    [displayedColumns]="displayedColumns"
+    (singleSelectEvent)="displayGraph($event)"
+  ></app-data-table>
+
+  <div *ngIf="selectedRow" class="matrix-box">
+    <app-chart-matrix
+      [model_name]="selectedRow.Model_name"
+      [data]="selectedRow.Matrix"
+    />
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<mat-sidenav-container>
+  <mat-sidenav class="mat-sidenav" mode="side" [opened]="!isSideNavCollapsed">
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *ngFor="let data of navData; let i = index">
+        <div>
+          <a
+            class="sidenav-nav-link"
+            [routerLink]="[data.routeLink]"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <mat-icon [matTooltip]="data.tooltip" class="sidenav-link-icon">{{
+              data.icon
+            }}</mat-icon>
+            <span class="sidenav-link-text">{{ data.label }}</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content><app-body></app-body></mat-sidenav-content>
+</mat-sidenav-container>

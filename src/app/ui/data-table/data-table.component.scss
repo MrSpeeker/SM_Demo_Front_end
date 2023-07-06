@@ -1,0 +1,19 @@
+.mat-mdc-row .mat-mdc-cell {
+  cursor: pointer;
+}
+
+.row-hover-effect {
+  .mat-mdc-row:hover .mat-mdc-cell {
+    background-color: #e4e4e4;
+  }
+}
+
+.cell-hover-effect {
+  .mat-mdc-cell:hover {
+    background-color: #e4e4e4;
+  }
+}
+
+.selected {
+  background-color: #e4e4e4;
+}

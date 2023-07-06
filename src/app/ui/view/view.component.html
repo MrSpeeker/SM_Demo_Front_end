@@ -1,0 +1,44 @@
+<div class="fullscreen">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Title: {{ selectedRow.object_id }}</span>
+      <span class="spacer"></span>
+      <button mat-raised-button color="warn" (click)="backButton()">
+        Back
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="grid">
+    <mat-tab-group class="col left">
+      <mat-tab label="Search">
+        <mat-card>
+          <mat-card-content class="flex">
+            <app-data-table
+              [dataSource]="dataSource"
+              [displayedColumns]="displayedColumns"
+              [cellSelectionActive]="true"
+              [singleSelectionActive]="false"
+              (cellSelectEvent)="cellSelected($event)"
+            ></app-data-table>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+      <mat-tab label="Add and Modify"> Content 1 </mat-tab>
+    </mat-tab-group>
+
+    <mat-card class="col right">
+      <mat-card-content class="flex">
+        <div id="bodyText" class="bodyText">
+          <span
+            [innerHtml]="
+              selectedRow.text.full_text.replace(newLineRegex, '<br/>') + ' '
+                | highlight : selectedTerm
+            "
+          >
+            {{ selectedRow.text.full_text }}
+          </span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
