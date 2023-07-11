@@ -1,25 +1,37 @@
 <mat-toolbar color="primary" class="navbar mat-elevation-z6">
-  <button id="menu-button" mat-icon-button (click)="toggleCollapse()">
+  <button mat-icon-button (click)="toggleCollapse()">
     <mat-icon *ngIf="!collapsed"> menu </mat-icon>
     <mat-icon *ngIf="collapsed"> close </mat-icon>
   </button>
 
-  <span>Smart Matching</span>
-
   <div class="spacer"></div>
 
-  <a
-    id="login-button"
-    mat-raised-button
-    (click)="authenticationService.login()"
-    *ngIf="authenticationService.isLoggedIn === false"
-    >Login</a
-  >
-  <a
-    id="logout-button"
-    mat-raised-button
-    (click)="authenticationService.logout()"
+  <a id="lang-button" mat-button (click)="changeLang()">{{ lang }}</a>
+  <button
+    [cdkMenuTriggerFor]="menu"
     *ngIf="authenticationService.isLoggedIn === true"
-    >Log Out</a
+    mat-icon-button
   >
+    <mat-icon> person </mat-icon>
+  </button>
+  <button
+    *ngIf="authenticationService.isLoggedIn === false"
+    (click)="authenticationService.login()"
+    mat-icon-button
+  >
+    <mat-icon> person </mat-icon>
+  </button>
 </mat-toolbar>
+
+<ng-template #menu>
+  <div class="menu" cdkMenu>
+    <button class="menu-item" cdkMenuItem>Settings</button>
+    <button
+      class="menu-item"
+      (click)="authenticationService.logout()"
+      cdkMenuItem
+    >
+      Logout
+    </button>
+  </div>
+</ng-template>

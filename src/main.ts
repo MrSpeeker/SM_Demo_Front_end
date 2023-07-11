@@ -1,5 +1,5 @@
-import { } from '@angular/animations';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {} from '@angular/animations';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,13 +11,24 @@ import {
   MsalBroadcastService,
   MsalGuard,
   MsalInterceptor,
-  MsalService
+  MsalService,
 } from '@azure/msal-angular';
 
 import { AppComponent } from './app/app.component';
-import { MSALGuardConfigFactory, MSALInstanceFactory, MSALInterceptorConfigFactory } from './app/auth-config';
+import {
+  MSALGuardConfigFactory,
+  MSALInstanceFactory,
+  MSALInterceptorConfigFactory,
+} from './app/auth-config';
 import { routes } from './app/routes';
 import { environment } from './environments/environment';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 if (environment.production) {
   enableProdMode();
@@ -46,6 +57,16 @@ bootstrapApplication(AppComponent, {
     MsalGuard,
     MsalBroadcastService,
     provideRouter(routes),
-    importProvidersFrom([BrowserAnimationsModule, HttpClientModule]),
-  ]
+    importProvidersFrom([
+      BrowserAnimationsModule,
+      HttpClientModule,
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+        },
+      }),
+    ]),
+  ],
 });

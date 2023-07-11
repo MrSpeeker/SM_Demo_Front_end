@@ -1,0 +1,109 @@
+{
+  "DASHBOARD": {
+    "TITLE": "Welcome to Smart Matching"
+  },
+  "TOPNAV": {
+    "LOGIN": "Login",
+    "LOGOUT": "Sign out"
+  },
+  "SIDENAV": {
+    "DASHBOARD": "Dashboard",
+    "OPPORTUNITIES": "Opportunities",
+    "CVS": "Uploaded CVs",
+    "UPLOAD_OPPORTUNITIES": "Uploaded Opportunities",
+    "VALIDATIONS": "Validation Summary"
+  },
+  "OPPORTUNITIES": {
+    "RUNBUTTON": "Run matching process",
+    "TABLE": {
+      "ID": "ID",
+      "ACCOUNTNAME": "Account Name",
+      "ROLE": "Role",
+      "REFERENCE": "Reference",
+      "RVO_OR_NOT": "RVO or NOT"
+    }
+  },
+  "MATCHED": {
+    "MATCHES": "Matches",
+    "OPPORTUNITY_TITLE": "Opportunity title",
+    "JOB_DESCRIPTION": "Job description",
+    "OPPORTUNITY_DEMANDS": "Opportunity demands",
+    "OPPORTUNITY_WISHES": "Opportunity wishes",
+    "OTHER_TERMS": "Other terms",
+    "BASED_ON_TERMS": "Based on terms",
+    "BASED_ON_DEMANDS_WISHES": "Based on demands and wishes",
+    "GENERIC_LABEL": "Match based on generic",
+    "GENERIC_SCORE": "Generic match confidence",
+    "FULFILLED_DEMANDS": "Fulfilled demands",
+    "UNFULFILLED_DEMANDS": "Unfulfilled demands",
+    "FULFILLED_WISHES": "Fulfilled wishes",
+    "UNFULFILLED_WISHES": "Unfulfilled wishes",
+    "MATCHING_TERMS": "Matching terms",
+    "TERMS_OPPORTUNITY_NOT_RESUME": "Terms in opportunity but not in cv",
+    "VIEW_OPPORTUNITY": "Read opportunity",
+    "VIEW_CV": "Read cv",
+    "TABLE": {
+      "NAME": "Name",
+      "JOB_DESCRIPTION": "Job description",
+      "BASED_ON_TERMS": "Based on terms",
+      "BASED_ON_DEMANDS_WISHES": "Based on demands and wishes"
+    }
+  },
+  "UPLOADEDCVS": {
+    "ADD": "Add",
+    "DELETE": "Delete",
+    "TABLE": {
+      "CV_NAME": "CV Name"
+    }
+  },
+  "VALIDATION_SUMMARY": {
+    "TABLE": {
+      "NAME": "Name",
+      "RMSE": "RMSE",
+      "PRECISION": "Precision",
+      "RECALL": "Recall",
+      "F1": "F1",
+      "ACCURACY": "Accuracy",
+      "COHENKAPPA": "Cohen Kappa",
+      "RANKING": "Ranking"
+    }
+  },
+  "DIALOG": {
+    "DRAG_DROP": "Drag and drop file here",
+    "OR": "or",
+    "BROWSE_FILE": "Browse for file",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "ARE_YOU_SURE": "Are you sure you want to delete",
+    "CLOSE": "Close",
+    "OPPORTUNITY_ID_TO_MATCH": "Opportunity ID to match on",
+    "OPPORTUNITY_ID": "Opportunity ID",
+    "OPPORTUNITY_ID_IS": "Opportunity ID is",
+    "REQUIRED": "required",
+    "VALIDATION_CV": "Use validation cvs",
+    "UPLOAD_CV": "Use uploaded cvs"
+  },
+  "TOAST": {
+    "DELETE_RECORD": "Record has been deleted.",
+    "CV_ADDED": "Cvs have been added.",
+    "OPPORTUNITY_ADDED": "Opportunity have been added.",
+    "CLOSE": "Close"
+  },
+  "TABLE": {
+    "NO_DATA": "No records found."
+  },
+  "MATRIX": {
+    "NAME": "Confusion matrix for ",
+    "LABEL_X": "Predicted results",
+    "LABEL_Y": "Actual results",
+    "LABELS": {
+      "NO_MATCH": "No match",
+      "PARTIAL_MATCH": "Partial match",
+      "MATCH": "Match"
+    }
+  },
+  "TOOLTIP": {
+    "TABLEVIEW": "Tabel view",
+    "GRIDVIEW": "Grid view"
+  }
+}

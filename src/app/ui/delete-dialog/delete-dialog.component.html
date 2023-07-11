@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>{{ 'UPLOADEDCVS.DELETE' | translate }}</h1>
+<div mat-dialog-content>
+  {{ 'DIALOG.ARE_YOU_SURE' | translate }}
+  <ul *ngIf="data.selectedRows[0].name">
+    <li *ngFor="let row of data.selectedRows">
+      {{ row.name }}
+    </li>
+  </ul>
+  <ul *ngIf="data.selectedRows[0].object_id">
+    <li *ngFor="let row of data.selectedRows">
+      {{ row.object_id }}
+    </li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="'delete'" color="warn">
+    {{ 'UPLOADEDCVS.DELETE' | translate }}
+  </button>
+  <button mat-raised-button mat-dialog-close>
+    {{ 'DIALOG.CANCEL' | translate }}
+  </button>
+</div>

@@ -5,6 +5,8 @@
   <app-data-table
     [dataSource]="dataSource"
     [displayedColumns]="displayedColumns"
+    [langString]="langString"
+    [singleSelectionActive]="true"
     (singleSelectEvent)="displayGraph($event)"
   ></app-data-table>
 

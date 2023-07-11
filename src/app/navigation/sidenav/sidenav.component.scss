@@ -1,9 +1,8 @@
+@import '../../../variables';
+
 .sidenav-nav {
   list-style: none;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - 3.65rem);
   cursor: pointer;
 
   .sidenav-nav-item {
@@ -13,9 +12,9 @@
       display: flex;
       align-items: center;
       height: 3rem;
-      color: #000;
+      color: $text-color;
       text-decoration: none;
-      border-left: 3px solid #858585;
+      border-left: 3px solid $left-border-color;
 
       .sidenav-link-icon {
         font-size: 22px;
@@ -31,26 +30,30 @@
 
   .sidenav-nav-item:hover {
     .sidenav-nav-link {
-      background-color: #dddddd;
-      color: #000;
+      background-color: $nav-item-hover-color;
+      color: $text-color;
     }
   }
 }
 
 .active {
-  background-color: #dddddd;
+  background-color: $nav-item-hover-color;
 
   .sidenav-link-icon,
   .sidenav-link-text {
-    color: #000;
+    color: $text-color;
   }
 }
 
 .mat-sidenav {
   position: fixed;
   z-index: 1;
-  top: 4rem;
   width: 16rem;
   height: 100vh;
-  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+}
+
+.logo {
+  width: 80%;
+  margin: 4.6%;
+  margin-left: 9%;
 }

@@ -1,10 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-import { TopnavComponent } from './navigation/topnav/topnav.component';
-import { ISideNavToggle } from './model/navigation/sidenav-toggle';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
-import { NavbarComponent } from './test/navbar/navbar.component';
+import { TopnavComponent } from './navigation/topnav/topnav.component';
 import { DashboardComponent } from './test/dashboard/dashboard.component';
 
 @Component({
@@ -16,14 +14,9 @@ import { DashboardComponent } from './test/dashboard/dashboard.component';
         CommonModule,
         TopnavComponent,
         SidenavComponent,
-        NavbarComponent,
         DashboardComponent
     ]
 })
 export class AppComponent {
-  isSideNavCollapsed = false;
 
-  onToggleSideNav(data: ISideNavToggle): void {
-    this.isSideNavCollapsed = data.collapsed;
-  }
 }

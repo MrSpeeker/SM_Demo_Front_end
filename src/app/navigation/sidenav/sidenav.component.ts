@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { ISideNavToggle } from '../../model/navigation/sidenav-toggle';
 import { BodyComponent } from '../body/body.component';
 import { navbarData } from './sidenav';
+import { TopnavComponent } from '../topnav/topnav.component';
 
 @Component({
   selector: 'app-sidenav',
@@ -23,6 +24,7 @@ import { navbarData } from './sidenav';
     MatTooltipModule,
     BodyComponent,
     RouterModule,
+    TopnavComponent
   ],
 })
 export class SidenavComponent {

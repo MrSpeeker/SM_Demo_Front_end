@@ -5,12 +5,16 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnDestroy,
+  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'app-data-table',
@@ -24,29 +28,46 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss'],
 })
-export class DataTableComponent implements AfterViewInit {
+export class DataTableComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() public dataSource: MatTableDataSource<any> =
     new MatTableDataSource();
   @Input() public displayedColumns: string[] = [];
-
-  // Cell select variable
+  @Input() public langString = '';
+  
   @Input() public cellSelectionActive = false;
-  @Output() public cellSelectEvent = new EventEmitter();
-  public selectedCell = 'CELL EMPTY';
-
-  // Single select variables
   @Input() public singleSelectionActive = false;
+  
+  @Output() public cellSelectEvent = new EventEmitter();
   @Output() public singleSelectEvent = new EventEmitter();
-  public selectedRow!: any;
-
-  // Multi selection variables
   @Output() public multiSelectEvent = new EventEmitter();
-  selection = new SelectionModel<any>(true, []);
+  
+  public columnDisplayNames: string[] = [];
+  public selectedCell = 'CELL EMPTY'; // Single selected cell.
+  public selectedRow!: any; // Single selected row.
+  public selection = new SelectionModel<any>(true, []); // Multiple selected rows.
 
-  @ViewChild(MatPaginator) private paginator!: MatPaginator;
+  @ViewChild(MatPaginator) private _paginator!: MatPaginator;
+  private _onLangChangeSubscription: Subscription = new Subscription();
+
+  constructor(private _translate: TranslateService) {}
+
+  ngOnInit(): void {
+    if (this.langString) {
+      this.loadTranslation();
+      this._onLangChangeSubscription = this._translate.onLangChange.subscribe(
+        () => {
+          this.loadTranslation();
+        }
+      );
+    }
+  }
 
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this._paginator;
+  }
+
+  ngOnDestroy() {
+    this._onLangChangeSubscription.unsubscribe();
   }
 
   public cellSelected(event: any) {
@@ -95,5 +116,17 @@ export class DataTableComponent implements AfterViewInit {
   public multiSelect(row: any) {
     this.selection.toggle(row);
     this.multiSelectEvent.emit(this.selection.selected);
+  }
+
+  private loadTranslation() {
+    this._translate
+      .get(this.langString)
+      .pipe(take(1))
+      .subscribe((data: string[]) => {
+        this.columnDisplayNames = Object.values(data);
+        if (this.displayedColumns.find(e => e === 'select')) {
+          this.columnDisplayNames.unshift('select');
+        }
+      });
   }
 }

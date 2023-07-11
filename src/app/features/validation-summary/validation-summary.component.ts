@@ -23,6 +23,7 @@ import { ChartMatrixComponent } from 'src/app/ui/chart-matrix/chart-matrix.compo
   styleUrls: ['./validation-summary.component.scss'],
 })
 export class ValidationSummaryComponent implements OnInit {
+  public langString = 'VALIDATION_SUMMARY.TABLE';
   public displayedColumns: string[] = [
     'Accuracy',
     'CohenKappa',

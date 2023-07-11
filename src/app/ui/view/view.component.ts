@@ -1,14 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { IOpportunity } from 'src/app/model/matching/opportunity.interface';
-import { MatTableDataSource } from '@angular/material/table';
-import { DataTableComponent } from '../data-table/data-table.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatTabsModule } from '@angular/material/tabs';
-import { HighlightPipe } from './high-light.pipe';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { DataTableComponent } from '../data-table/data-table.component';
+import { HighlightPipe } from './high-light.pipe';
 
 @Component({
   selector: 'app-view',
@@ -19,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     MatToolbarModule,
     MatIconModule,
+    MatTooltipModule,
     MatCardModule,
     MatTabsModule,
     MatButtonModule,
@@ -27,7 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
   ],
 })
 export class ViewComponent implements OnInit {
-  @Input() selectedRow!: IOpportunity;
+  @Input() selectedRow!: any;
   @Input() public dataSource: MatTableDataSource<any> =
     new MatTableDataSource();
   @Output() backEvent = new EventEmitter();

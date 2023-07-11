@@ -1,0 +1,109 @@
+{
+  "DASHBOARD": {
+    "TITLE": "Welkom bij Smart Matching"
+  },
+  "TOPNAV": {
+    "LOGIN": "Inloggen",
+    "LOGOUT": "Afmelden"
+  },
+  "SIDENAV": {
+    "DASHBOARD": "Dashboard",
+    "OPPORTUNITIES": "Aanvragen",
+    "CVS": "Geuploade cv's",
+    "UPLOAD_OPPORTUNITIES": "Geuploade aanvragen",
+    "VALIDATIONS": "Validatie Samenvatting"
+  },
+  "OPPORTUNITIES": {
+    "RUNBUTTON": "Start koppelen",
+    "TABLE": {
+      "ID": "ID",
+      "ACCOUNTNAME": "Accountnaam",
+      "ROLE": "Rol",
+      "REFERENCE": "Referentie",
+      "RVO_OR_NOT": "RVO of niet"
+    }
+  },
+  "MATCHED": {
+    "MATCHES": "Matches",
+    "OPPORTUNITY_TITLE": "Aanvraag titel",
+    "JOB_DESCRIPTION": "Rol",
+    "OPPORTUNITY_DEMANDS": "Aanvraag eisen",
+    "OPPORTUNITY_WISHES": "Aanvraag wensen",
+    "OTHER_TERMS": "Andere termen",
+    "BASED_ON_TERMS": "Gebaseerd op termen",
+    "BASED_ON_DEMANDS_WISHES": "Gebaseerd op eisen en wensen",
+    "GENERIC_LABEL": "Match gebaseerd op generiek",
+    "GENERIC_SCORE": "Generiek match vertrouwen",
+    "FULFILLED_DEMANDS": "Vervulde eisen",
+    "UNFULFILLED_DEMANDS": "Niet vervulde eisen",
+    "FULFILLED_WISHES": "Vervulde wensen",
+    "UNFULFILLED_WISHES": "Niet vervulde wensen",
+    "MATCHING_TERMS": "Overeenkomstige termen",
+    "TERMS_OPPORTUNITY_NOT_RESUME": "Termen in aanvraag maar niet in cv",
+    "VIEW_OPPORTUNITY": "Aanvraag Weergeven",
+    "VIEW_CV": "Cv Weergeven",
+    "TABLE": {
+      "NAME": "Naam",
+      "JOB_DESCRIPTION": "Rol",
+      "BASED_ON_TERMS": "Gebaseerd op termen",
+      "BASED_ON_DEMANDS_WISHES": "Gebaseerd op eisen en wensen"
+    }
+  },
+  "UPLOADEDCVS": {
+    "ADD": "Toevoegen",
+    "DELETE": "Verwijderen",
+    "TABLE": {
+      "CV_NAME": "CV Naam"
+    }
+  },
+  "VALIDATION_SUMMARY": {
+    "TABLE": {
+      "NAME": "Naam",
+      "RMSE": "RMSE",
+      "PRECISION": "Precisie",
+      "RECALL": "Recall",
+      "F1": "F1",
+      "ACCURACY": "Nauwkeurigheid",
+      "COHENKAPPA": "Cohen Kappa",
+      "RANKING": "Rangschikking"
+    }
+  },
+  "DIALOG": {
+    "DRAG_DROP": "Drag en drop bestand hier",
+    "OR": "of",
+    "BROWSE_FILE": "Blader naar bestand",
+    "SAVE": "Opslaan",
+    "CANCEL": "Annuleren",
+    "ARE_YOU_SURE": "Weet je zeker dat je een bestand wilt verwijderen met de naam: ",
+    "CLOSE": "Sluiten",
+    "OPPORTUNITY_ID_TO_MATCH": "Aanvraag ID om te koppelen",
+    "OPPORTUNITY_ID": "Aanvraag ID",
+    "OPPORTUNITY_ID_IS": "Aanvraag ID is",
+    "REQUIRED": "vereist",
+    "VALIDATION_CV": "Gebruik gevalideerde cvs",
+    "UPLOAD_CV": "Gebruik geuploade cvs"
+  },
+  "TOAST": {
+    "DELETE_RECORD": "Bestand is verwijderd",
+    "CV_ADDED": "Cvs zijn geupload",
+    "OPPORTUNITY_ADDED": "Aanvraag is geupload",
+    "CLOSE": "Sluiten"
+  },
+  "TABLE": {
+    "NO_DATA": "Geen records gevonden."
+  },
+  "MATRIX": {
+    "NAME": "Confusion matrix voor ",
+    "LABEL_X": "Voorspelde resultaten",
+    "LABEL_Y": "Werkelijke resultaten",
+    "LABELS": {
+      "NO_MATCH": "Geen match",
+      "PARTIAL_MATCH": "Deels match",
+      "MATCH": "Match"
+    }
+  },
+  "TOOLTIP": {
+    "TABLEVIEW": "Tabel weergave",
+    "GRIDVIEW": "Grid weergave"
+  }
+}

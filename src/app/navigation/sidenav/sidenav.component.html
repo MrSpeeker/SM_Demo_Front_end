@@ -1,5 +1,10 @@
 <mat-sidenav-container>
   <mat-sidenav class="mat-sidenav" mode="side" [opened]="!isSideNavCollapsed">
+    <img
+      class="logo"
+      src="../../../assets/Cimsolutions-logo-RGB-learn-create-and-make-it-work.png"
+      alt="Cimsolutions Logo"
+    />
     <ul class="sidenav-nav">
       <li class="sidenav-nav-item" *ngFor="let data of navData; let i = index">
         <div>
@@ -18,5 +23,8 @@
       </li>
     </ul>
   </mat-sidenav>
-  <mat-sidenav-content><app-body></app-body></mat-sidenav-content>
+  <mat-sidenav-content>
+    <app-topnav (toggleSideNav)="onToggleSideNav($event)"></app-topnav>
+    <app-body></app-body
+  ></mat-sidenav-content>
 </mat-sidenav-container>

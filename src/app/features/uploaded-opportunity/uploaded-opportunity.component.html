@@ -1,31 +1,57 @@
 <div class="spinner-container" *ngIf="loading">
   <mat-spinner></mat-spinner>
 </div>
-<mat-toolbar color="primary" *ngIf="!loading">
-  <mat-toolbar-row>
-    <span>Uploaded Opportunities</span>
-    <span class="spacer"></span>
-    <button mat-raised-button color="warn" (click)="startMatch()">
-      Start Match
-    </button>
-    <button mat-raised-button color="warn" (click)="addOpportunity()">
-      Add
-    </button>
-    <button
-      mat-raised-button
-      color="warn"
-      [disabled]="!selectedOpportunities.length"
-      (click)="deleteOpportunity()"
-    >
-      Delete
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
-<div class="mat-elevation-z8" *ngIf="!loading">
-  <app-data-table
-    [dataSource]="dataSource"
-    [displayedColumns]="displayedColumns"
-    (singleSelectEvent)="setSingleSelected($event)"
-    (multiSelectEvent)="setMultiSelected($event)"
-  ></app-data-table>
-</div>
+<ng-container *ngIf="!viewOpportunity">
+  <div class="mat-elevation-z8" *ngIf="!loading">
+    <mat-toolbar color="accent">
+      <mat-toolbar-row>
+        <span>Uploaded Opportunities</span>
+        <span class="spacer"></span>
+        <button mat-raised-button color="primary" (click)="startMatch()">
+          <mat-icon> document_scanner </mat-icon>
+          Start Match
+        </button>
+
+        <button
+          color="primary"
+          (click)="addOpportunity()"
+          mat-icon-button
+          matTooltip="Add Opportunities to the list"
+        >
+          <mat-icon> add </mat-icon>
+        </button>
+        <button
+          color="primary"
+          [disabled]="!selectedOpportunities.length"
+          (click)="deleteOpportunity()"
+          matTooltip="Delete all selected Opportunities"
+          mat-icon-button
+        >
+          <mat-icon> delete </mat-icon>
+        </button>
+        <button
+          color="primary"
+          (click)="openOpportunity()"
+          matTooltip="Read selected Opportunity"
+          [disabled]="!selectedRow"
+          mat-icon-button
+        >
+          <mat-icon> read_more </mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <app-data-table
+      [dataSource]="dataSource"
+      [displayedColumns]="displayedColumns"
+      [singleSelectionActive]="true"
+      [langString]="langString"
+      (singleSelectEvent)="setSingleSelected($event)"
+      (multiSelectEvent)="setMultiSelected($event)"
+    ></app-data-table>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="viewOpportunity">
+  <app-view [selectedRow]="selectedRow" (backEvent)="backClicked()"></app-view>
+</ng-container>

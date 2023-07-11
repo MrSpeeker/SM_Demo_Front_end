@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>{{ 'UPLOADEDCVS.ADD' | translate }} {{ data.label }}</h1>
+<div mat-dialog-content>
+  <div class="container">
+    <input
+      type="file"
+      #fileDropRef
+      id="fileDropRef"
+      multiple
+      (change)="fileBrowseHandler($event)"
+    />
+    <div class="icon">
+      <mat-icon fontSet="material-icons-outlined" [inline]="true"
+        >file_upload</mat-icon
+      >
+    </div>
+    <h3>{{ 'DIALOG.DRAG_DROP' | translate }}</h3>
+    <h3>{{ 'DIALOG.OR' | translate }}</h3>
+    <button mat-raised-button for="fileDropRef" color="primary">
+      {{ 'DIALOG.BROWSE_FILE' | translate }}
+    </button>
+  </div>
+  <div class="files-list">
+    <div class="single-file" *ngFor="let file of files; let i = index">
+      <div class="icon">
+        <mat-icon fontSet="material-icons-outlined" [inline]="true"
+          >description</mat-icon
+        >
+      </div>
+      <div class="info">
+        <h4 class="name">
+          {{ file?.name }}
+        </h4>
+        <p class="size">
+          {{ formatBytes(file?.size) }}
+        </p>
+      </div>
+      <div class="delete" (click)="deleteFile(i)">
+        <mat-icon aria-label="delete icon" fontIcon="delete"></mat-icon>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="filesData" color="primary">
+    {{ 'DIALOG.SAVE' | translate }}
+  </button>
+  <button mat-raised-button mat-dialog-close>
+    {{ 'DIALOG.CANCEL' | translate }}
+  </button>
+</div>

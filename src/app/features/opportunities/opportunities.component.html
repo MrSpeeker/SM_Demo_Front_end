@@ -2,18 +2,32 @@
   <mat-spinner></mat-spinner>
 </div>
 <ng-container *ngIf="!viewOpportunity">
-  <mat-toolbar color="primary" *ngIf="!loading">
-    <mat-toolbar-row>
-      <span>Opportunities</span>
-      <span class="spacer"></span>
-      <button mat-raised-button color="warn" (click)="startMatch()">
-        Start Match
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
   <div class="mat-elevation-z8" *ngIf="!loading">
+    <mat-toolbar color="accent">
+      <mat-toolbar-row>
+        <span>Opportunities</span>
+        <span class="spacer"></span>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!selectedRow"
+          (click)="startMatch()"
+        >
+          Start Match
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!selectedRow"
+          (click)="openOpportunity()"
+        >
+          Open Opportunity
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
     <app-data-table
       [dataSource]="dataSource"
+      [langString]="langString"
       [singleSelectionActive]="true"
       [displayedColumns]="displayedColumns"
       (singleSelectEvent)="setSingleSelected($event)"
@@ -22,9 +36,5 @@
 </ng-container>
 
 <ng-container *ngIf="viewOpportunity">
-  <app-view
-    [selectedRow]="selectedRow"
-    [dataSource]="dataSource"
-    (backEvent)="backClicked()"
-  ></app-view>
+  <app-view [selectedRow]="selectedRow" (backEvent)="backClicked()"></app-view>
 </ng-container>

@@ -1,10 +1,16 @@
 <div class="fullscreen">
-  <mat-toolbar color="primary">
+  <mat-toolbar color="accent">
     <mat-toolbar-row>
       <span>Title: {{ selectedRow.object_id }}</span>
       <span class="spacer"></span>
-      <button mat-raised-button color="warn" (click)="backButton()">
-        Back
+
+      <button
+        color="primary"
+        (click)="backButton()"
+        mat-icon-button
+        matTooltip="Back to previous page."
+      >
+        <mat-icon> arrow_back </mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
